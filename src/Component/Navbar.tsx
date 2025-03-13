@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <>
     <div className='navbar  bg-customWhite py-4 border-b-4 border-black'>
-        <div className='container mx-auto flex justify-between'>
+        <div className='container mx-auto flex justify-between items-center'>
             <div className='logo'>
             <h1>Logo</h1>
             </div>

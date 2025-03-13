@@ -3,9 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './Component/Navbar'
-
 import Search from './Component/Search'
-import { Button } from '@/components/ui/button'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,7 +11,7 @@ function App() {
   return (
     <body className='bg-sky-500 w-full max-h-min'>
     <Navbar />
-    <Button>Default</Button>
+  
     <Search />
 
       {/* <div>
