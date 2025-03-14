@@ -1,47 +1,52 @@
-import { useState, useRef } from "react";
+import { useRef, useEffect } from "react";
+import { motion, useAnimation, useMotionValue } from "framer-motion";
 
 const images = [
-  "https://source.unsplash.com/400x250/?nature",
-  "https://source.unsplash.com/400x250/?city",
-  "https://source.unsplash.com/400x250/?space",
+  "https://via.placeholder.com/300/FF5733/FFFFFF?text=1",
+  "https://via.placeholder.com/300/33FF57/FFFFFF?text=2",
+  "https://via.placeholder.com/300/3357FF/FFFFFF?text=3",
+  "https://via.placeholder.com/300/F1C40F/FFFFFF?text=4",
 ];
 
-export default function Carouser() {
-  const [index, setIndex] = useState(0);
+const Carouser = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const controls = useAnimation();
 
-  const handleNext = () => {
-    setIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const handlePrev = () => {
-    setIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-  };
+  useEffect(() => {
+    controls.start({ x: 0 }); // Mulai dari posisi awal
+  }, [controls]);
 
   return (
-    <div className="relative w-[400px] h-[250px] overflow-hidden rounded-2xl border-4 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)]">
-      <div
+    <div className="flex justify-center items-center h-screen bg-gray-100 p-5">
+      <motion.div
         ref={carouselRef}
-        className="flex transition-transform duration-300 ease-in-out"
-        style={{ transform: `translateX(-${index * 100}%)` }}
+        className="overflow-hidden cursor-grab rounded-2xl border-4 border-black p-5 bg-white shadow-[5px_5px_0px_#000]"
+        whileTap={{ cursor: "grabbing" }}
       >
-        {images.map((src, i) => (
-          <img key={i} src={src} className="w-full h-full object-cover" />
-        ))}
-      </div>
-      {/* Tombol Navigasi */}
-      <button
-        onClick={handlePrev}
-        className="absolute top-1/2 left-2 -translate-y-1/2 bg-white border-2 border-black px-3 py-2 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-none active:translate-y-0.5"
-      >
-        ⬅️
-      </button>
-      <button
-        onClick={handleNext}
-        className="absolute top-1/2 right-2 -translate-y-1/2 bg-white border-2 border-black px-3 py-2 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-none active:translate-y-0.5"
-      >
-        ➡️
-      </button>
+        <motion.div
+          className="flex gap-4"
+          drag="x"
+          dragConstraints={{ left: -((images.length - 1) * 320), right: 0 }}
+          style={{ x }}
+          animate={controls}
+        >
+          {images.map((src, index) => (
+            <motion.div
+              key={index}
+              className="min-w-[300px] h-[200px] rounded-lg border-4 border-black bg-gray-200 shadow-[5px_5px_0px_#000]"
+            >
+              <img
+                src={src}
+                alt={`Slide ${index + 1}`}
+                className="w-full h-full object-cover rounded-md"
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
     </div>
   );
-}
+};
+
+export default Carouser;
