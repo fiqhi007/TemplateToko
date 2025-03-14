@@ -3,16 +3,16 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './Component/Navbar'
-import Search from './Component/Search'
+import Hero from './Component/Hero'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <body className='bg-sky-500 w-full max-h-min'>
+    <body className='bg-sky-100 w-full max-h-min'>
     <Navbar />
-  
-    <Search />
+  <Hero/>
+   
 
       {/* <div>
         <a href="https://vite.dev" target="_blank">

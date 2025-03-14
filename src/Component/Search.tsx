@@ -9,12 +9,12 @@ const Search = () => {
 <div className="flex  w-full mx-7 lg:max-w-[500px] rounded-full border-gray-400 border-opacity-65   border bg-gray-100 px-2">
     
 
-    <input type="text" className="flex w-full  bg-transparent px-3 text-gray-700 rtl:text-right outline-0" placeholder="Search name movie or select options" />
+    <input type="text" className="flex w-full  bg-transparent px-3 text-gray-700 rtl:text-right outline-0" placeholder="Search" />
 
     <div className="border-gray-400 border-opacity-70 my-1 border-l "></div>
 
     <button type="submit" className="relative rounded-full bg-transparent px-2 py-3">
-      <svg className="fill-none size-6"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="fill-none size-3"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="SVGRepo_bgCarrier" stroke-width="0" />
 
         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
