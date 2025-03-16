@@ -5,6 +5,7 @@ import './App.css'
 import Navbar from './Component/Navbar'
 import Hero from './Component/Hero'
 import Footer from './Component/Footer'
+import Card from './Component/Card'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,6 +14,7 @@ function App() {
     <body className='bg-sky-100 w-full max-h-min'>
     <Navbar />
   <Hero/>
+  <Card/>
   <Footer />
   
    
