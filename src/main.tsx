@@ -1,10 +1,18 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import App from "./App";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+// Temukan elemen root di HTML Anda
+const container = document.getElementById("root");
+
+// Pastikan elemen root ada
+if (container) {
+  const root = createRoot(container); // Buat root
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+} else {
+  console.error("Elemen root tidak ditemukan!");
+}
