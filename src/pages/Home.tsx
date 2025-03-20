@@ -7,6 +7,7 @@ interface Product {
   title: string;
   image: string;
   price: number;
+  quantity: number; // Tambahkan properti quantity
 }
 
 interface HomeProps {
@@ -48,7 +49,7 @@ const Home: React.FC<HomeProps> = ({ addToCart }) => {
             title={product.title}
             image={product.image}
             price={product.price}
-            addToCart={() => addToCart(product)}
+            addToCart={() => addToCart({ ...product, quantity: 1 })}
           />
         ))}
       </div>

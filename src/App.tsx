@@ -8,6 +8,7 @@ interface Product {
   title: string;
   image: string;
   price: number;
+  quantity: number; // Tambahkan properti quantity
 }
 
 const App: React.FC = () => {
@@ -17,6 +18,7 @@ const App: React.FC = () => {
   const addToCart = (product: Product) => {
     const existingItem = cartItems.find((item) => item.id === product.id);
     if (existingItem) {
+      // Jika produk sudah ada di cart, tambahkan quantity-nya
       setCartItems(
         cartItems.map((item) =>
           item.id === product.id
@@ -25,6 +27,7 @@ const App: React.FC = () => {
         )
       );
     } else {
+      // Jika produk belum ada di cart, tambahkan dengan quantity = 1
       setCartItems([...cartItems, { ...product, quantity: 1 }]);
     }
   };
