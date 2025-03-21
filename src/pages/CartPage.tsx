@@ -45,7 +45,7 @@ const CartPage: React.FC<CartPageProps> = ({ cartItems, removeFromCart }) => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-20 h-20 object-contain border-2 border-black rounded-lg"
+                  className="w-12 h-12 object-contain border-2 border-black rounded-lg "
                 />
                 <div className="flex-1 ml-4">
                   <h2 className="text-xl font-bold">{item.title}</h2>

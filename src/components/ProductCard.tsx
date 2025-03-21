@@ -21,7 +21,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       <img
         src={image}
         alt={title}
-        className="w-full h-48 object-contain border-2 border-black rounded-lg"
+        className="w-8 h-8 object-contain border-2 border-black rounded-lg"
       />
 
       {/* Judul dan Harga */}
